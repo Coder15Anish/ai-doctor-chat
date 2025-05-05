@@ -1,8 +1,9 @@
 # Setup Speech to text–STT–model for transcription
 import os
 from groq import Groq
+import streamlit as st
 
-GROQ_API_KEY=os.environ.get("GROQ_API_KEY")
+GROQ_API_KEY=st.secrets["GROQ_API_KEY"]
 stt_model="whisper-large-v3"
 
 def transcribe_with_groq(stt_model, audio_filepath, GROQ_API_KEY):

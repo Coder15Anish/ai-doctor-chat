@@ -6,7 +6,7 @@ import os
 from gtts import gTTS
 from voice_of_doctor import speak
 
-
+api_key=st.secrets["GROQ_API_KEY"]
 #Tittle and Caption
 st.title("AI Doctor")
 st.caption("Note That This ChatBot Provides General Medical Informations And It Is Not A Substitute For Professional Medical Advicers")
@@ -50,7 +50,7 @@ with col4:
     audio_value = st.audio_input("Record a voice message",label_visibility="collapsed")
 
     if audio_value:
-        speech_to_text_output = transcribe_with_groq(GROQ_API_KEY=os.environ.get("GROQ_API_KEY"), 
+        speech_to_text_output = transcribe_with_groq(GROQ_API_KEY=api_key, 
                                                     audio_filepath=audio_value,
                                                     stt_model="whisper-large-v3")
         print(speech_to_text_output)

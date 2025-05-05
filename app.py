@@ -50,7 +50,7 @@ with col4:
     audio_value = st.audio_input("Record a voice message",label_visibility="collapsed")
 
     if audio_value:
-        speech_to_text_output = transcribe_with_groq(GROQ_API_KEY=api_key, 
+        speech_to_text_output = transcribe_with_groq(GROQ_API_KEY=st.secrets["GROQ_API_KEY"], 
                                                     audio_filepath=audio_value,
                                                     stt_model="whisper-large-v3")
         print(speech_to_text_output)

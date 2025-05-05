@@ -1,7 +1,7 @@
 #Step1: Setup GROQ API key
 import os
-
-GROQ_API_KEY=os.environ.get("GROQ_API_KEY")
+import streamlit as st
+GROQ_API_KEY=st.secrets["GROQ_API_KEY"]
 
 #Step2: Convert image to required format
 import base64
@@ -51,7 +51,7 @@ def analyze_image_with_query(query, model, encoded_image):
 def analyze_image_without_query(query, model):
     try:
         client = Groq(
-        api_key=os.environ.get("GROQ_API_KEY"),
+        api_key=st.secrets["GROQ_API_KEY"],
         )
 
         chat_completion = client.chat.completions.create(
